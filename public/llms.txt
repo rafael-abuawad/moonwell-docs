@@ -1,0 +1,15 @@
+# Tokenizer API
+
+> Control-plane API for deploying and managing ERC-20/ERC-721 tokens via the Moonwell Factory.
+
+- [Getting Started](/getting-started/)
+- [Authentication](/getting-started/authentication)
+- [Errors](/getting-started/errors)
+- [Deploy Token Guide](/guides/deploy-token)
+- [Manage Token Guide](/guides/manage-token)
+- [Media Guide](/guides/media)
+- [Token URI Guide](/guides/token-uri)
+- [API Reference — Auth](/reference/auth)
+- [API Reference — Tokens](/reference/tokens)
+- [Full LLM Context](/llms-full.txt)
+- [OpenAPI Spec](http://localhost:3001/openapi/json)
