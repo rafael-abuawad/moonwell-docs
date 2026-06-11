@@ -79,7 +79,7 @@ Deploy a new token. Consumes one mint quota.
 
 ## GET /tokens/:address
 
-Get on-chain details for an owned token.
+Get onchain details for an owned token.
 
 **Response 200:**
 

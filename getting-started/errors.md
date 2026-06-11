@@ -20,7 +20,7 @@ All API errors return a consistent JSON shape:
 | `VALIDATION_ERROR` | 422 | Invalid request body or parameters |
 | `BASE_URI_TOO_LONG` | 422 | ERC-721 base URI exceeds maximum length |
 | `QUOTA_EXCEEDED` | 403 | Mint quota exhausted for current period |
-| `CHAIN_ERROR` | 502 | On-chain transaction or RPC failure |
+| `CHAIN_ERROR` | 502 | Onchain transaction or RPC failure |
 | `DEPLOY_UNAVAILABLE` | 503 | Factory or deploy service unavailable |
 | `UPLOAD_FAILED` | 500 | Media file could not be stored |
 | `INTERNAL_ERROR` | 500 | Unexpected server error |

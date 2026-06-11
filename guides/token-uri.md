@@ -1,6 +1,6 @@
 # Token URI Resolver
 
-The token URI endpoint returns ERC-721-compatible JSON metadata built from on-chain ERC-8048 entries. It is **public** — no authentication required.
+The token URI endpoint returns ERC-721-compatible JSON metadata built from onchain ERC-8048 entries. It is **public** — no authentication required.
 
 ## Endpoint
 
@@ -11,7 +11,7 @@ GET /tokenURI/:address/:tokenId?
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | `address` | Yes | Token contract address |
-| `tokenId` | ERC-721 only | NFT token ID. Omit for ERC-20 (uses on-chain token ID). |
+| `tokenId` | ERC-721 only | NFT token ID. Omit for ERC-20 (uses onchain token ID). |
 
 ## ERC-721 example
 
@@ -35,7 +35,7 @@ curl http://localhost:3001/tokenURI/0xADDRESS/1
 
 ## ERC-20 example
 
-For fungible tokens, omit `tokenId` — the API reads the on-chain token ID automatically:
+For fungible tokens, omit `tokenId` — the API reads the onchain token ID automatically:
 
 ```bash
 curl http://localhost:3001/tokenURI/0xADDRESS
@@ -55,7 +55,7 @@ Set metadata via the [manage token guide](/guides/manage-token#metadata) before 
 | Status | Code | Cause |
 |--------|------|-------|
 | 404 | `NOT_FOUND` | Unknown address, missing tokenId for ERC-721, or no metadata set |
-| 502 | `CHAIN_ERROR` | RPC failure reading on-chain data |
+| 502 | `CHAIN_ERROR` | RPC failure reading onchain data |
 
 ## Integration with wallets
 

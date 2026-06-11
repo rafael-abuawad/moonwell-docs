@@ -1,6 +1,6 @@
 # Manage a Token
 
-After deploying, use the token `address` to mint, pause, freeze accounts, and set on-chain metadata.
+After deploying, use the token `address` to mint, pause, freeze accounts, and set onchain metadata.
 
 All endpoints require authentication and token ownership.
 
@@ -161,4 +161,4 @@ Values are URI strings — typically links to hosted JSON or [uploaded media](/g
 | 403 | `QUOTA_EXCEEDED` | No mints remaining |
 | 404 | `NOT_FOUND` | Token address not in database |
 | 422 | `VALIDATION_ERROR` | Invalid owner, amount, or token ID |
-| 502 | `CHAIN_ERROR` | On-chain call failed |
+| 502 | `CHAIN_ERROR` | Onchain call failed |

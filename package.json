@@ -4,6 +4,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "dev": "vitepress dev",
         "docs:dev": "vitepress dev",
         "build": "bun scripts/generate-llms.ts && vitepress build",
         "preview": "vitepress preview",

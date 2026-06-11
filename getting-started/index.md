@@ -17,7 +17,7 @@ bun install
 bun run dev
 ```
 
-This starts the API at `http://localhost:3001` alongside the web app.
+This starts the API at `http://localhost:3001`, the web app at `http://localhost:3000`, and the API documentation at `http://localhost:5173`.
 
 To run only the API:
 
@@ -37,7 +37,7 @@ bun run dev
 | `RPC_URL` | `http://127.0.0.1:8545` | EVM JSON-RPC endpoint |
 | `CHAIN_ID` | `31337` | Chain ID for transaction proofs |
 | `FACTORY_ADDRESS` | — | Moonwell Factory contract address |
-| `SIGNER_PRIVATE_KEY` | — | Hot wallet for on-chain transactions |
+| `SIGNER_PRIVATE_KEY` | — | Hot wallet for onchain transactions |
 | `PUBLIC_API_URL` | `http://localhost:3001` | Base URL used in media asset links |
 | `UPLOAD_DIR` | `./uploads` | Directory for processed media files |
 

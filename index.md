@@ -17,7 +17,7 @@ hero:
 features:
     - title: Deploy tokens
       details: Create ERC-20 or ERC-721 contracts with a single authenticated POST request.
-    - title: Manage on-chain
+    - title: Manage onchain
       details: Mint, pause, freeze accounts, and set ERC-8048 metadata keys and values.
     - title: Media & metadata
       details: Upload optimized WebP images and serve public tokenURI JSON for wallets.
