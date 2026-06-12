@@ -38,9 +38,8 @@ bun run dev
 | `CHAIN_ID` | `31337` | Chain ID for transaction proofs |
 | `FACTORY_ADDRESS` | — | Moonwell Factory contract address |
 | `SIGNER_PRIVATE_KEY` | — | Hot wallet for onchain transactions |
-| `PUBLIC_API_URL` | `http://localhost:3001` | Base URL used in media asset links (local dev only) |
-| `UPLOAD_DIR` | `./uploads` | Local filesystem storage for media (dev/test only) |
-| `BLOB_READ_WRITE_TOKEN` | — | Vercel Blob token (auto-injected on Vercel; enables production media storage) |
+| `PUBLIC_API_URL` | `http://localhost:3001` | Base URL used in media asset links |
+| `UPLOAD_DIR` | `./uploads` | Filesystem storage for media uploads |
 
 ## Base URL
 

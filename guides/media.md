@@ -2,7 +2,7 @@
 
 Upload images for token metadata. Files are optimized to WebP via Bun's image processor and served publicly without authentication.
 
-**Production:** uploads are stored in [Vercel Blob](https://vercel.com/docs/storage/vercel-blob); `url` in API responses is a direct Blob CDN link (`https://….public.blob.vercel-storage.com/...`). **Local dev:** files are written to `UPLOAD_DIR` and `url` points at the API (`PUBLIC_API_URL/tokens/.../media/...`).
+Files are written to `UPLOAD_DIR` and `url` in API responses points at the API (`PUBLIC_API_URL/tokens/.../media/...`).
 
 ## Upload an image
 
@@ -42,16 +42,12 @@ Returns an array of assets for the token.
 
 ## Serve an image (public)
 
-**Local dev** — the API serves the file directly:
-
 ```bash
 curl http://localhost:3001/tokens/0xADDRESS/media/550e8400-e29b-41d4-a716-446655440000 \
   -o image.webp
 ```
 
 Response `Content-Type`: `image/webp`
-
-**Production (Vercel Blob)** — the same route returns `307` to the Blob CDN URL. Clients and wallets should use the `url` from upload/list responses directly.
 
 ## Supported formats
 
