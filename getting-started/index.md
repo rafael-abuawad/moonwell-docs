@@ -38,8 +38,17 @@ bun run dev
 | `CHAIN_ID` | `31337` | Chain ID for transaction proofs |
 | `FACTORY_ADDRESS` | — | Moonwell Factory contract address |
 | `SIGNER_PRIVATE_KEY` | — | Hot wallet for onchain transactions |
-| `PUBLIC_API_URL` | `http://localhost:3001` | Base URL used in media asset links |
-| `UPLOAD_DIR` | `./uploads` | Filesystem storage for media uploads |
+| `PUBLIC_API_URL` | `http://localhost:3001` | Base URL used in API links (local media URLs when `STORAGE_DRIVER=local`) |
+| `STORAGE_DRIVER` | `local` | Media storage backend: `local` (disk) or `s3` (Railway Bucket) |
+| `UPLOAD_DIR` | `./uploads` | Filesystem storage for media uploads (local driver only) |
+| `S3_BUCKET` | — | Railway Bucket name (required when `STORAGE_DRIVER=s3`) |
+| `S3_ENDPOINT` | `https://storage.railway.app` | S3-compatible endpoint |
+| `S3_REGION` | `auto` | Bucket region |
+| `S3_ACCESS_KEY_ID` | — | Bucket access key |
+| `S3_SECRET_ACCESS_KEY` | — | Bucket secret key |
+| `MEDIA_PUBLIC_BASE_URL` | — | Public CDN base for media URLs (required when `STORAGE_DRIVER=s3`) |
+
+For production bucket setup, see [Railway media storage](/deployment/railway-media-storage).
 
 ## Base URL
 

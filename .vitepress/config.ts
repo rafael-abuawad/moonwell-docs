@@ -40,6 +40,19 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Deployment',
+                items: [
+                    {
+                        text: 'Railway API',
+                        link: '/deployment/railway-api'
+                    },
+                    {
+                        text: 'Railway Media Storage',
+                        link: '/deployment/railway-media-storage'
+                    }
+                ]
+            },
+            {
                 text: 'Reference',
                 items: [
                     { text: 'Auth', link: '/reference/auth' },
