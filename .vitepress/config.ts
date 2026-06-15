@@ -8,6 +8,7 @@ export default defineConfig({
     description:
         'Developer documentation for the Tokenizer API — deploy and manage ERC-20/ERC-721 tokens.',
     base: '/',
+    ignoreDeadLinks: [/^http:\/\/localhost/],
     themeConfig: {
         nav: [
             { text: 'Getting Started', link: '/getting-started/' },
@@ -42,10 +43,6 @@ export default defineConfig({
             {
                 text: 'Deployment',
                 items: [
-                    {
-                        text: 'Railway API',
-                        link: '/deployment/railway-api'
-                    },
                     {
                         text: 'Railway Media Storage',
                         link: '/deployment/railway-media-storage'
