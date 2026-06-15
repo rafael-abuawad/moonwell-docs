@@ -2,29 +2,42 @@
 
 The **Tokenizer API** is an Elysia REST service that deploys and manages ERC-20 and ERC-721 tokens through the Moonwell Factory. It runs on port **3001** by default.
 
+The API, web frontend, and this documentation site live in **separate repositories** (`moonwell-api`, `moonwell-web`, `moonwell-docs`). Clone the repos you need side by side for local development.
+
 ## Prerequisites
 
 - [Bun](https://bun.sh) installed
+- PostgreSQL (local instance or hosted provider such as Neon)
 - A local EVM chain (Anvil/Hardhat) or configured RPC endpoint
-- SQLite database (created automatically on first run)
 
 ## Run the API locally
 
-From the monorepo root:
+In the **moonwell-api** repository:
 
 ```bash
 bun install
-bun run dev
+cp .env.example .env   # adjust DATABASE_URL, RPC_URL, FACTORY_ADDRESS, etc.
+bun run db:migrate
+bun run dev            # http://localhost:3001
 ```
 
-This starts the API at `http://localhost:3001`, the web app at `http://localhost:3000`, and the API documentation at `http://localhost:5173`.
+## Run the web app locally
 
-To run only the API:
+In the **moonwell-web** repository (with the API already running):
 
 ```bash
-cd apps/api
-cp .env.example .env   # adjust RPC_URL, FACTORY_ADDRESS, etc.
-bun run dev
+bun install
+OPENAPI_SPEC_PATH=../moonwell-api/openapi.json bun run codegen:api
+NEXT_PUBLIC_API_URL=http://localhost:3001 bun run dev   # http://localhost:3000
+```
+
+## Run the docs locally
+
+In this **moonwell-docs** repository:
+
+```bash
+bun install
+bun run docs:dev   # http://localhost:5173
 ```
 
 ### Environment variables
@@ -32,7 +45,7 @@ bun run dev
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `PORT` | `3001` | HTTP listen port |
-| `DATABASE_URL` | `file:./dev.db` | SQLite connection string |
+| `DATABASE_URL` | — | PostgreSQL connection string |
 | `JWT_SECRET` | — | Secret for signing session tokens |
 | `RPC_URL` | `http://127.0.0.1:8545` | EVM JSON-RPC endpoint |
 | `CHAIN_ID` | `31337` | Chain ID for transaction proofs |
@@ -66,6 +79,8 @@ When the API is running:
 
 - **Swagger UI** — [http://localhost:3001/openapi](http://localhost:3001/openapi)
 - **OpenAPI JSON** — [http://localhost:3001/openapi/json](http://localhost:3001/openapi/json)
+
+The web app generates its typed HTTP client from `openapi.json` using `openapi-typescript`.
 
 ## Typical workflow
 
