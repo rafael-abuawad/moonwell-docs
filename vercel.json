@@ -1,0 +1,19 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "installCommand": "bun install",
+    "buildCommand": "bun run build",
+    "outputDirectory": ".vitepress/dist",
+    "bunVersion": "1.x",
+    "cleanUrls": true,
+    "headers": [
+        {
+            "source": "/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
+}
