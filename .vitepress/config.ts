@@ -36,7 +36,6 @@ export default defineConfig({
                 items: [
                     { text: 'Deploy a Token', link: '/guides/deploy-token' },
                     { text: 'Manage a Token', link: '/guides/manage-token' },
-                    { text: 'Media Uploads', link: '/guides/media' },
                     { text: 'Token URI Resolver', link: '/guides/token-uri' }
                 ]
             },

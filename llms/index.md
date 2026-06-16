@@ -25,10 +25,9 @@ Obtain a token via `POST /auth/signup` or `POST /auth/signin`. For long-lived ac
 3. `GET /stats` — check mint quota
 4. `POST /tokens` — deploy ERC-20 or ERC-721
 5. `POST /tokens/:address/mint` — mint to recipient
-6. `POST /tokens/:address/media` — upload images
-7. `PUT /tokens/:address/metadata/keys` — set metadata keys
-8. `PUT /tokens/:address/metadata` — set metadata values
-9. `GET /tokenURI/:address/:tokenId?` — verify public JSON
+6. Host image on IPFS or CDN — save URI
+7. `PUT /tokens/:address/metadata` — set structured metadata with image URI
+8. `GET /tokenURI/:address/:tokenId?` — verify public JSON
 
 ## Error format
 
@@ -55,4 +54,3 @@ Copy [Full Context](/llms/context) or fetch `/llms-full.txt` into your system pr
 ## Content-Type notes
 
 - JSON endpoints: `Content-Type: application/json`
-- Media upload: `multipart/form-data` with field `file`

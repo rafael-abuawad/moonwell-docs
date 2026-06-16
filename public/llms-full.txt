@@ -73,28 +73,14 @@ POST /tokens/:address/unfreeze — body: {"account":"0x"}, 200: {"success":true}
 POST /tokens/:address/approve-account — body: {"account":"0x"}, 200: {"success":true}
 POST /tokens/:address/unapprove-account — body: {"account":"0x"}, 200: {"success":true}
 
-PUT /tokens/:address/metadata/keys
-Body: {"keys":["string"](max 16)}
-200: {"success":true}
-
 PUT /tokens/:address/metadata
-ERC20 body: {"values":["uri string"](max 16)}
-ERC721 body: {"tokenId":"string","values":["uri string"](max 16)}
+ERC20 body: {"name":"string","description":"string","image":"uri?","attributes":{"key":"string|number|bool"}(max 13 keys)}
+ERC721 body: {"tokenId":"string","name":"string","description":"string","image":"uri?","attributes":{"key":"string|number|bool"}(max 13 keys)}
 200: {"success":true}
+422: VALIDATION_ERROR (e.g. too many attribute keys)
 
-## Media
-
-POST /tokens/:address/media (auth required, multipart/form-data)
-Field: file (image)
-200: {"id":"uuid","url":"url","width":n,"height":n,"size":n,"mimeType":"image/webp","createdAt":"date"}
-401: UNAUTHORIZED, 422: VALIDATION_ERROR
-
-GET /tokens/:address/media (public)
-200: array of media assets
-
-GET /tokens/:address/media/:id (public)
-200: image/webp binary
-404: NOT_FOUND
+GET /tokens/:address/metadata/keys
+200: {"keys":["string"]}
 
 ## Token URI (public)
 
@@ -106,7 +92,7 @@ ERC721: tokenId required
 
 ## Error codes
 
-UNAUTHORIZED(401), FORBIDDEN(403), NOT_FOUND(404), CONFLICT(409), VALIDATION_ERROR(422), BASE_URI_TOO_LONG(422), QUOTA_EXCEEDED(403), CHAIN_ERROR(502), DEPLOY_UNAVAILABLE(503), UPLOAD_FAILED(500), INTERNAL_ERROR(500)
+UNAUTHORIZED(401), FORBIDDEN(403), NOT_FOUND(404), CONFLICT(409), VALIDATION_ERROR(422), BASE_URI_TOO_LONG(422), QUOTA_EXCEEDED(403), CHAIN_ERROR(502), DEPLOY_UNAVAILABLE(503), INTERNAL_ERROR(500)
 
 ## Typical flow
 
@@ -115,7 +101,6 @@ UNAUTHORIZED(401), FORBIDDEN(403), NOT_FOUND(404), CONFLICT(409), VALIDATION_ERR
 3. GET /stats → check quota
 4. POST /tokens → deploy, save address
 5. POST /tokens/:address/mint → mint
-6. POST /tokens/:address/media → upload image, save url
-7. PUT /tokens/:address/metadata/keys → set keys
-8. PUT /tokens/:address/metadata → set values with media urls
-9. GET /tokenURI/:address/:tokenId → verify JSON metadata
+6. Host image on IPFS or CDN → save URI
+7. PUT /tokens/:address/metadata → set structured metadata with image URI
+8. GET /tokenURI/:address/:tokenId → verify JSON metadata

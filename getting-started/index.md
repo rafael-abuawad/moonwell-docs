@@ -43,8 +43,8 @@ See [OpenAPI reference](/reference/openapi) for the full spec and security schem
 1. [Sign up](/getting-started/authentication#signup) or [sign in](/getting-started/authentication#signin)
 2. Optionally [create an API key](/reference/api-keys) for programmatic access
 3. [Deploy a token](/guides/deploy-token) (`POST /tokens`)
-4. [Mint tokens](/guides/manage-token#mint) or [upload media](/guides/media)
-5. Set [metadata](/guides/manage-token#metadata) and verify via the [token URI resolver](/guides/token-uri)
+4. [Mint tokens](/guides/manage-token#mint) and [set metadata](/guides/manage-token#metadata) (host images externally first)
+5. Verify via the [token URI resolver](/guides/token-uri)
 
 ## Next steps
 

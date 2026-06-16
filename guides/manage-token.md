@@ -105,20 +105,13 @@ All require `{"account": "0x..."}` in the request body.
 
 ## Metadata {#metadata}
 
-Tokens use ERC-8048-style keyed metadata. Set keys first, then values.
+Tokens use ERC-8048 on-chain keyed metadata. Send a structured JSON body and the API maps fields to on-chain keys automatically.
 
-### Set metadata keys
+### Image hosting
 
-```bash
-curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata/keys \
-  -H "Authorization: Bearer <token>" \
-  -H "Content-Type: application/json" \
-  -d '{"keys": ["name", "description", "image"]}'
-```
+The API does not store or serve images. Upload assets to IPFS (recommended) or any HTTP-accessible host from your frontend, then pass the URI in the `image` field.
 
-Up to 16 keys per token.
-
-### Set metadata values
+### Set metadata
 
 **ERC-20** (contract-level metadata):
 
@@ -127,11 +120,12 @@ curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
-    "values": [
-      "https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS",
-      "A fungible token",
-      "https://media.example.com/media/user-id/0xADDRESS/asset-id.webp"
-    ]
+    "name": "Moon Drop",
+    "description": "A fungible token",
+    "image": "https://cdn.example.com/logo.png",
+    "attributes": {
+      "tier": "gold"
+    }
   }'
 ```
 
@@ -143,15 +137,42 @@ curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata
   -H "Content-Type: application/json" \
   -d '{
     "tokenId": "1",
-    "values": [
-      "Moon Drop #1",
-      "First edition",
-      "https://media.example.com/media/user-id/0xADDRESS/asset-id.webp"
-    ]
+    "name": "Moon Drop #1",
+    "description": "First edition",
+    "image": "ipfs://bafy...",
+    "attributes": {
+      "edition": 1,
+      "rarity": "legendary"
+    }
   }'
 ```
 
-Values are URI strings — typically links to hosted JSON or [uploaded media](/guides/media).
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Token or NFT display name |
+| `description` | Yes | Human-readable description |
+| `image` | No | URI to hosted image (IPFS or HTTP). Required for [token URI](/guides/token-uri) resolution |
+| `attributes` | No | Custom traits (max 13 keys). Values: string, number, or boolean |
+| `tokenId` | ERC-721 only | Target NFT token ID |
+
+On-chain key order: `name`, `description`, optional `image`, then attribute keys (alphabetically sorted). Maximum 16 keys total.
+
+**Success response:** `{"success": true}`
+
+### List metadata keys
+
+Read current on-chain key names (optional, for debugging):
+
+```bash
+curl https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata/keys \
+  -H "Authorization: Bearer <token>"
+```
+
+```json
+{
+  "keys": ["name", "description", "image", "edition", "rarity"]
+}
+```
 
 ## Common errors
 
@@ -160,5 +181,5 @@ Values are URI strings — typically links to hosted JSON or [uploaded media](/g
 | 403 | `FORBIDDEN` | Token belongs to another user |
 | 403 | `QUOTA_EXCEEDED` | No mints remaining |
 | 404 | `NOT_FOUND` | Token address not in database |
-| 422 | `VALIDATION_ERROR` | Invalid owner, amount, or token ID |
+| 422 | `VALIDATION_ERROR` | Invalid owner, amount, token ID, or metadata (e.g. too many attribute keys) |
 | 502 | `CHAIN_ERROR` | Onchain call failed |

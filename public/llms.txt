@@ -7,7 +7,6 @@
 - [Errors](/getting-started/errors)
 - [Deploy Token Guide](/guides/deploy-token)
 - [Manage Token Guide](/guides/manage-token)
-- [Media Guide](/guides/media)
 - [Token URI Guide](/guides/token-uri)
 - [API Reference — Auth](/reference/auth)
 - [API Reference — Tokens](/reference/tokens)

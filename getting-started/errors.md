@@ -22,7 +22,6 @@ All API errors return a consistent JSON shape:
 | `QUOTA_EXCEEDED` | 403 | Mint quota exhausted for current period |
 | `CHAIN_ERROR` | 502 | Onchain transaction or RPC failure |
 | `DEPLOY_UNAVAILABLE` | 503 | Factory or deploy service unavailable |
-| `UPLOAD_FAILED` | 500 | Media file could not be stored |
 | `INTERNAL_ERROR` | 500 | Unexpected server error |
 
 ## HTTP status mapping
@@ -71,15 +70,16 @@ curl https://api-rho-gold-msx2gnbkee.vercel.app/me
 ### Validation error
 
 ```bash
-curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0x.../media \
+curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata \
   -H "Authorization: Bearer <token>" \
-  -F "file=@bad.txt"
+  -H "Content-Type: application/json" \
+  -d '{"description": "Missing name field"}'
 ```
 
 ```json
 {
   "code": "VALIDATION_ERROR",
-  "message": "Unsupported image format"
+  "message": "Validation failed"
 }
 ```
 

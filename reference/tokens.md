@@ -175,29 +175,34 @@ Revoke account approval.
 
 **Response 200:** `{"success": true}`
 
-## PUT /tokens/:address/metadata/keys
+## GET /tokens/:address/metadata/keys
 
-Set metadata key names (up to 16).
+List on-chain metadata key names for an owned token.
 
-**Body:**
+**Response 200:**
 
 ```json
 {
-  "keys": ["name", "description", "image"]
+  "keys": ["name", "description", "image", "edition", "rarity"]
 }
 ```
 
-**Response 200:** `{"success": true}`
-
 ## PUT /tokens/:address/metadata
 
-Set metadata values (URIs).
+Set structured metadata. The API maps fields to ERC-8048 on-chain keys automatically.
+
+Image hosting is client-side — upload to IPFS or any host, then pass the URI in `image`.
 
 **ERC-20 body:**
 
 ```json
 {
-  "values": ["uri1", "uri2", "uri3"]
+  "name": "Moon Drop",
+  "description": "A fungible token",
+  "image": "https://cdn.example.com/logo.png",
+  "attributes": {
+    "tier": "gold"
+  }
 }
 ```
 
@@ -206,21 +211,25 @@ Set metadata values (URIs).
 ```json
 {
   "tokenId": "1",
-  "values": ["uri1", "uri2", "uri3"]
+  "name": "Moon Drop #1",
+  "description": "First edition",
+  "image": "ipfs://bafy...",
+  "attributes": {
+    "edition": 1,
+    "rarity": "legendary"
+  }
 }
 ```
 
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Display name |
+| `description` | Yes | Description text |
+| `image` | No | Hosted image URI (IPFS or HTTP) |
+| `attributes` | No | Custom traits, max 13 keys |
+| `tokenId` | ERC-721 only | Target token ID |
+
 **Response 200:** `{"success": true}`
-
-## Media endpoints
-
-See [Media guide](/guides/media) for upload and serve details.
-
-| Method | Path | Auth |
-|--------|------|------|
-| `POST` | `/tokens/:address/media` | Yes |
-| `GET` | `/tokens/:address/media` | No |
-| `GET` | `/tokens/:address/media/:id` | No |
 
 ## Token URI (public)
 

@@ -32,8 +32,7 @@ bearerAuth:
 | API Keys | `/api-keys` |
 | Profile | `/me` |
 | Stats | `/stats` |
-| Tokens | `/tokens/*` |
-| Media | `/tokens/:address/media` |
+| Tokens | `/tokens/*` (structured metadata via `PUT /tokens/:address/metadata`) |
 | Token URI | `/tokenURI/:address/:tokenId?` |
 
 ## Relationship to these docs

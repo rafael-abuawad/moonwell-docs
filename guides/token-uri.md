@@ -25,7 +25,7 @@ curl https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS/1
 {
   "name": "Moon Drop #1",
   "description": "First edition",
-  "image": "https://media.example.com/media/user-id/0xADDRESS/550e8400-....webp",
+  "image": "ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
   "attributes": {
     "rarity": "legendary",
     "edition": 1
@@ -48,7 +48,7 @@ curl https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS
 3. Maps known keys (`name`, `description`, `image`) to top-level fields
 4. Remaining keys become `attributes`
 
-Set metadata via the [manage token guide](/guides/manage-token#metadata) before expecting a response.
+Set metadata via the [manage token guide](/guides/manage-token#metadata) before expecting a response. The `image` field echoes whatever URI was written on-chain (typically IPFS or an HTTP URL you hosted).
 
 ## Common errors
 

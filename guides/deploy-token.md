@@ -109,5 +109,4 @@ curl https://api-rho-gold-msx2gnbkee.vercel.app/stats \
 ## Next steps
 
 - [Manage your token](/guides/manage-token) — mint, pause, metadata
-- [Upload media](/guides/media) — images for token metadata
 - [Token URI](/guides/token-uri) — public metadata endpoint
