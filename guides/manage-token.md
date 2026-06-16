@@ -9,7 +9,7 @@ Replace `0xADDRESS` with your deployed contract address.
 ## Get token details
 
 ```bash
-curl http://localhost:3001/tokens/0xADDRESS \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -33,7 +33,7 @@ Minting consumes one quota unit (same as deploy).
 ### ERC-20 mint
 
 ```bash
-curl -X POST http://localhost:3001/tokens/0xADDRESS/mint \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/mint \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -47,7 +47,7 @@ curl -X POST http://localhost:3001/tokens/0xADDRESS/mint \
 ### ERC-721 mint
 
 ```bash
-curl -X POST http://localhost:3001/tokens/0xADDRESS/mint \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/mint \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -65,7 +65,7 @@ The next available token ID is minted automatically.
   "data": {
     "transaction": {
       "hash": "0xabc...",
-      "explorerUrl": "http://localhost/explorer/tx/0xabc..."
+      "explorerUrl": "https://explorer.example.com/tx/0xabc..."
     }
   }
 }
@@ -75,11 +75,11 @@ The next available token ID is minted automatically.
 
 ```bash
 # Pause all transfers
-curl -X POST http://localhost:3001/tokens/0xADDRESS/pause \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/pause \
   -H "Authorization: Bearer <token>"
 
 # Resume transfers
-curl -X POST http://localhost:3001/tokens/0xADDRESS/unpause \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/unpause \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -88,7 +88,7 @@ curl -X POST http://localhost:3001/tokens/0xADDRESS/unpause \
 Freeze, unfreeze, approve, and unapprove individual accounts:
 
 ```bash
-curl -X POST http://localhost:3001/tokens/0xADDRESS/freeze \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/freeze \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{"account": "0xAccountAddress"}'
@@ -110,7 +110,7 @@ Tokens use ERC-8048-style keyed metadata. Set keys first, then values.
 ### Set metadata keys
 
 ```bash
-curl -X PUT http://localhost:3001/tokens/0xADDRESS/metadata/keys \
+curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata/keys \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{"keys": ["name", "description", "image"]}'
@@ -123,14 +123,14 @@ Up to 16 keys per token.
 **ERC-20** (contract-level metadata):
 
 ```bash
-curl -X PUT http://localhost:3001/tokens/0xADDRESS/metadata \
+curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
     "values": [
-      "https://api.example.com/tokenURI/0xADDRESS",
+      "https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS",
       "A fungible token",
-      "https://api.example.com/tokens/0xADDRESS/media/asset-id"
+      "https://media.example.com/media/user-id/0xADDRESS/asset-id.webp"
     ]
   }'
 ```
@@ -138,7 +138,7 @@ curl -X PUT http://localhost:3001/tokens/0xADDRESS/metadata \
 **ERC-721** (per-token-ID metadata):
 
 ```bash
-curl -X PUT http://localhost:3001/tokens/0xADDRESS/metadata \
+curl -X PUT https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/metadata \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -146,7 +146,7 @@ curl -X PUT http://localhost:3001/tokens/0xADDRESS/metadata \
     "values": [
       "Moon Drop #1",
       "First edition",
-      "https://api.example.com/tokens/0xADDRESS/media/asset-id"
+      "https://media.example.com/media/user-id/0xADDRESS/asset-id.webp"
     ]
   }'
 ```

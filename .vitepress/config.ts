@@ -1,14 +1,14 @@
 import { defineConfig } from 'vitepress'
 
 const apiOpenApiUrl =
-    process.env.API_URL?.replace(/\/$/, '') ?? 'http://localhost:3001'
+    process.env.API_URL?.replace(/\/$/, '') ??
+    'https://api-rho-gold-msx2gnbkee.vercel.app'
 
 export default defineConfig({
     title: 'Tokenizer API Docs',
     description:
         'Developer documentation for the Tokenizer API — deploy and manage ERC-20/ERC-721 tokens.',
     base: '/',
-    ignoreDeadLinks: [/^http:\/\/localhost/],
     themeConfig: {
         nav: [
             { text: 'Getting Started', link: '/getting-started/' },
@@ -38,15 +38,6 @@ export default defineConfig({
                     { text: 'Manage a Token', link: '/guides/manage-token' },
                     { text: 'Media Uploads', link: '/guides/media' },
                     { text: 'Token URI Resolver', link: '/guides/token-uri' }
-                ]
-            },
-            {
-                text: 'Deployment',
-                items: [
-                    {
-                        text: 'Railway Media Storage',
-                        link: '/deployment/railway-media-storage'
-                    }
                 ]
             },
             {

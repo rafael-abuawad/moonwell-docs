@@ -13,7 +13,7 @@ hero:
           link: /reference/auth
         - theme: alt
           text: OpenAPI
-          link: http://localhost:3001/openapi
+          link: https://api-rho-gold-msx2gnbkee.vercel.app/openapi
 features:
     - title: Deploy tokens
       details: Create ERC-20 or ERC-721 contracts with a single authenticated POST request.
@@ -25,11 +25,11 @@ features:
 
 ## Quick start
 
-Start the API locally (default port **3001**), then authenticate:
+Create an account against the hosted API and authenticate:
 
 ```bash
 # Sign up
-curl -X POST http://localhost:3001/auth/signup \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```
@@ -37,7 +37,7 @@ curl -X POST http://localhost:3001/auth/signup \
 Use the returned `token` as a Bearer header on protected routes:
 
 ```bash
-curl http://localhost:3001/me \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/me \
   -H "Authorization: Bearer <token>"
 ```
 

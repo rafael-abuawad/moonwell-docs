@@ -1,12 +1,12 @@
 # Tokenizer Docs
 
-VitePress documentation site for the Tokenizer API and platform.
+VitePress documentation site for the Tokenizer API.
 
 ## Setup
 
 ```bash
 bun install
-bun run docs:dev    # http://localhost:5173
+bun run docs:dev
 ```
 
 ## Build
@@ -15,9 +15,8 @@ bun run docs:dev    # http://localhost:5173
 bun run build
 ```
 
-## Related repositories
+## Preview production build
 
-- **moonwell-api** — REST API and OpenAPI spec
-- **moonwell-web** — Next.js frontend
-
-The API and web apps are separate repositories. Use each repo's README for local development and deployment. Media storage on Railway Buckets is documented in [Railway media storage](/deployment/railway-media-storage).
+```bash
+bun run preview
+```

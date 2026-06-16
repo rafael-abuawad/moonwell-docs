@@ -31,7 +31,7 @@ Return plan and mint quota for the authenticated user.
 | `periodEnd` | Current period end (ISO 8601) |
 
 ```bash
-curl http://localhost:3001/stats \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/stats \
   -H "Authorization: Bearer <token>"
 ```
 

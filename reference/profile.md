@@ -22,7 +22,7 @@ Return the current user's profile.
 ```
 
 ```bash
-curl http://localhost:3001/me \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/me \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -50,7 +50,7 @@ Pass `null` to clear the wallet address.
 **Errors:** `422 VALIDATION_ERROR` — invalid wallet address
 
 ```bash
-curl -X PATCH http://localhost:3001/me \
+curl -X PATCH https://api-rho-gold-msx2gnbkee.vercel.app/me \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{"walletAddress":"0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"}'

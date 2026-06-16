@@ -4,25 +4,14 @@ The Tokenizer API exposes a machine-readable OpenAPI 3 spec generated from Elysi
 
 ## Live documentation
 
-With the API running locally:
+The hosted API serves interactive Swagger UI and the raw OpenAPI JSON:
 
 | Resource | URL |
 |----------|-----|
-| Swagger UI | [http://localhost:3001/openapi](http://localhost:3001/openapi) |
-| OpenAPI JSON | [http://localhost:3001/openapi/json](http://localhost:3001/openapi/json) |
+| Swagger UI | [https://api-rho-gold-msx2gnbkee.vercel.app/openapi](https://api-rho-gold-msx2gnbkee.vercel.app/openapi) |
+| OpenAPI JSON | [https://api-rho-gold-msx2gnbkee.vercel.app/openapi/json](https://api-rho-gold-msx2gnbkee.vercel.app/openapi/json) |
 
 The spec includes request/response schemas from TypeBox models on each route.
-
-## Export the spec
-
-Save a snapshot to disk (requires a running server):
-
-```bash
-cd apps/api
-bun run openapi:export
-```
-
-This writes `openapi.json` in the `apps/api` directory.
 
 ## Security scheme
 

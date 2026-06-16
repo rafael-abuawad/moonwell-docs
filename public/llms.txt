@@ -12,4 +12,4 @@
 - [API Reference — Auth](/reference/auth)
 - [API Reference — Tokens](/reference/tokens)
 - [Full LLM Context](/llms-full.txt)
-- [OpenAPI Spec](http://localhost:3001/openapi/json)
+- [OpenAPI Spec](https://api-rho-gold-msx2gnbkee.vercel.app/openapi/json)

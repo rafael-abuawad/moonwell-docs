@@ -1,6 +1,6 @@
 # Tokenizer API — Full Context
 
-Base URL: `http://localhost:3001`
+Base URL: `https://api-rho-gold-msx2gnbkee.vercel.app`
 
 Auth header: `Authorization: Bearer <jwt-or-mw_api_key>`
 

@@ -43,7 +43,7 @@ The API uses standard HTTP semantics:
 ### Invalid credentials
 
 ```bash
-curl -X POST http://localhost:3001/auth/signin \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signin \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"wrong"}'
 ```
@@ -58,7 +58,7 @@ curl -X POST http://localhost:3001/auth/signin \
 ### Missing authentication
 
 ```bash
-curl http://localhost:3001/me
+curl https://api-rho-gold-msx2gnbkee.vercel.app/me
 ```
 
 ```json
@@ -71,7 +71,7 @@ curl http://localhost:3001/me
 ### Validation error
 
 ```bash
-curl -X POST http://localhost:3001/tokens/0x.../media \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0x.../media \
   -H "Authorization: Bearer <token>" \
   -F "file=@bad.txt"
 ```

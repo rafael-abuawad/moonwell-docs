@@ -16,7 +16,7 @@ Create a new account and receive a JWT.
 **`POST /auth/signup`** — No auth required.
 
 ```bash
-curl -X POST http://localhost:3001/auth/signup \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```
@@ -61,7 +61,7 @@ Authenticate with existing credentials.
 **`POST /auth/signin`** — No auth required.
 
 ```bash
-curl -X POST http://localhost:3001/auth/signin \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signin \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```
@@ -80,13 +80,13 @@ API keys are long-lived credentials ideal for CI, scripts, and backend services.
 
 ```bash
 # Create a key (requires JWT)
-curl -X POST http://localhost:3001/api-keys \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/api-keys \
   -H "Authorization: Bearer <jwt>" \
   -H "Content-Type: application/json" \
   -d '{"name":"my-integration"}'
 
 # Use the key like a JWT
-curl http://localhost:3001/me \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/me \
   -H "Authorization: Bearer mw_..."
 ```
 

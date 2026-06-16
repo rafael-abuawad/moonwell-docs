@@ -71,7 +71,7 @@ Deploy a new token. Consumes one mint quota.
     "createdAt": "2026-06-10T12:00:00.000Z",
     "transaction": {
       "hash": "0xabc...",
-      "explorerUrl": "http://localhost/explorer/tx/0xabc..."
+      "explorerUrl": "https://explorer.example.com/tx/0xabc..."
     }
   }
 }
@@ -125,7 +125,7 @@ Mint tokens. Consumes one mint quota.
   "data": {
     "transaction": {
       "hash": "0xabc...",
-      "explorerUrl": "http://localhost/explorer/tx/0xabc..."
+      "explorerUrl": "https://explorer.example.com/tx/0xabc..."
     }
   }
 }

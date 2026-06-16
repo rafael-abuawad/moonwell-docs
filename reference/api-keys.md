@@ -38,7 +38,7 @@ Create a new API key.
 The full `key` is shown only at creation.
 
 ```bash
-curl -X POST http://localhost:3001/api-keys \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/api-keys \
   -H "Authorization: Bearer <jwt>" \
   -H "Content-Type: application/json" \
   -d '{"name":"ci-key"}'
@@ -67,7 +67,7 @@ List all API keys for the authenticated user.
 ```
 
 ```bash
-curl http://localhost:3001/api-keys \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/api-keys \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -89,6 +89,6 @@ Revoke an API key.
 | 409 | `CONFLICT` | Key already revoked |
 
 ```bash
-curl -X DELETE http://localhost:3001/api-keys/clx... \
+curl -X DELETE https://api-rho-gold-msx2gnbkee.vercel.app/api-keys/clx... \
   -H "Authorization: Bearer <token>"
 ```

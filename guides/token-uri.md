@@ -16,7 +16,7 @@ GET /tokenURI/:address/:tokenId?
 ## ERC-721 example
 
 ```bash
-curl http://localhost:3001/tokenURI/0xADDRESS/1
+curl https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS/1
 ```
 
 **Success response (200):**
@@ -25,7 +25,7 @@ curl http://localhost:3001/tokenURI/0xADDRESS/1
 {
   "name": "Moon Drop #1",
   "description": "First edition",
-  "image": "http://localhost:3001/tokens/0xADDRESS/media/550e8400-...",
+  "image": "https://media.example.com/media/user-id/0xADDRESS/550e8400-....webp",
   "attributes": {
     "rarity": "legendary",
     "edition": 1
@@ -38,7 +38,7 @@ curl http://localhost:3001/tokenURI/0xADDRESS/1
 For fungible tokens, omit `tokenId` — the API reads the onchain token ID automatically:
 
 ```bash
-curl http://localhost:3001/tokenURI/0xADDRESS
+curl https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS
 ```
 
 ## How it works
@@ -62,7 +62,5 @@ Set metadata via the [manage token guide](/guides/manage-token#metadata) before 
 Point your contract's `tokenURI` or metadata values at this endpoint:
 
 ```
-http://localhost:3001/tokenURI/0xADDRESS/1
+https://api-rho-gold-msx2gnbkee.vercel.app/tokenURI/0xADDRESS/1
 ```
-
-In production, use your `PUBLIC_API_URL` host.

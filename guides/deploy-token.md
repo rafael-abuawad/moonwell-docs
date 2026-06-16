@@ -5,13 +5,11 @@ Deploy a new ERC-20 or ERC-721 contract via the Moonwell Factory. Deployment con
 ## Prerequisites
 
 - Valid Bearer token (JWT or API key)
-- Factory contract deployed and `FACTORY_ADDRESS` configured
-- RPC endpoint reachable
 
 ## Deploy ERC-20
 
 ```bash
-curl -X POST http://localhost:3001/tokens \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -34,7 +32,7 @@ curl -X POST http://localhost:3001/tokens \
 ## Deploy ERC-721
 
 ```bash
-curl -X POST http://localhost:3001/tokens \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens \
   -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -60,18 +58,18 @@ ERC-721 does not require a `decimals` field.
     "createdAt": "2026-06-10T12:00:00.000Z",
     "transaction": {
       "hash": "0xabc...",
-      "explorerUrl": "http://localhost/explorer/tx/0xabc..."
+      "explorerUrl": "https://explorer.example.com/tx/0xabc..."
     }
   }
 }
 ```
 
-Save the `address` — all subsequent token operations use it.
+Save the `address` — all subsequent token operations use it. Use the `explorerUrl` from the response to view the transaction on a block explorer.
 
 ## List your tokens
 
 ```bash
-curl http://localhost:3001/tokens \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/tokens \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -94,7 +92,7 @@ Returns an array (empty if none deployed yet):
 Each deploy reserves one mint from your plan quota. Check usage:
 
 ```bash
-curl http://localhost:3001/stats \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/stats \
   -H "Authorization: Bearer <token>"
 ```
 

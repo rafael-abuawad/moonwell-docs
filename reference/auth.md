@@ -36,7 +36,7 @@ Create a new user account.
 **Errors:** `409 CONFLICT` — email already registered
 
 ```bash
-curl -X POST http://localhost:3001/auth/signup \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```
@@ -57,7 +57,7 @@ Authenticate with existing credentials.
 **Errors:** `401 UNAUTHORIZED` — invalid credentials
 
 ```bash
-curl -X POST http://localhost:3001/auth/signin \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signin \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```

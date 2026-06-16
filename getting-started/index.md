@@ -7,17 +7,15 @@ The **Tokenizer API** is a hosted REST service that deploys and manages ERC-20 a
 All endpoints are relative to the production API host:
 
 ```
-https://api.example.com
+https://api-rho-gold-msx2gnbkee.vercel.app
 ```
-
-Replace `https://api.example.com` with your environment's base URL in the examples below and throughout these docs.
 
 ## Quick start
 
 Create an account and receive a JWT:
 
 ```bash
-curl -X POST https://api.example.com/auth/signup \
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"you@example.com","password":"password123"}'
 ```
@@ -25,7 +23,7 @@ curl -X POST https://api.example.com/auth/signup \
 Use the returned `token` as a Bearer header on protected routes:
 
 ```bash
-curl https://api.example.com/me \
+curl https://api-rho-gold-msx2gnbkee.vercel.app/me \
   -H "Authorization: Bearer <token>"
 ```
 
@@ -35,8 +33,8 @@ See [Authentication](/getting-started/authentication) for sign-in, API keys, and
 
 The live API exposes OpenAPI documentation you can browse or import into API clients:
 
-- **Swagger UI** — `https://api.example.com/openapi`
-- **OpenAPI JSON** — `https://api.example.com/openapi/json`
+- **Swagger UI** — `https://api-rho-gold-msx2gnbkee.vercel.app/openapi`
+- **OpenAPI JSON** — `https://api-rho-gold-msx2gnbkee.vercel.app/openapi/json`
 
 See [OpenAPI reference](/reference/openapi) for the full spec and security scheme.
 

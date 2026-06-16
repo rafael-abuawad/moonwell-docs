@@ -5,7 +5,7 @@ This section helps AI agents integrate with the Tokenizer API efficiently.
 ## Base URL
 
 ```
-http://localhost:3001
+https://api-rho-gold-msx2gnbkee.vercel.app
 ```
 
 ## Authentication
@@ -47,7 +47,7 @@ Common codes: `UNAUTHORIZED`, `FORBIDDEN`, `NOT_FOUND`, `QUOTA_EXCEEDED`, `VALID
 |----------|-----|
 | LLM index | `/llms.txt` |
 | Full API context | `/llms-full.txt` |
-| OpenAPI JSON | `http://localhost:3001/openapi/json` |
+| OpenAPI JSON | `https://api-rho-gold-msx2gnbkee.vercel.app/openapi/json` |
 | Condensed reference | [context.md](/llms/context) |
 
 Copy [Full Context](/llms/context) or fetch `/llms-full.txt` into your system prompt for complete endpoint coverage.
