@@ -20,6 +20,7 @@ curl https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS \
   "name": "Moon Drop",
   "symbol": "MD",
   "paused": false,
+  "transferLocked": false,
   "permissionless": false,
   "owner": "0x...",
   "creator": "you@example.com"
@@ -73,15 +74,31 @@ The next available token ID is minted automatically.
 
 ## Pause and unpause
 
+**Pause** halts everything (mint, burn, metadata, transfers). **Transfer lock** (next section) blocks transfers and approvals only.
+
 ```bash
-# Pause all transfers
+# Pause all operations
 curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/pause \
   -H "Authorization: Bearer <token>"
 
-# Resume transfers
+# Resume operations
 curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/unpause \
   -H "Authorization: Bearer <token>"
 ```
+
+## Transfer lock
+
+```bash
+# Lock transfers and approvals
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/lock-transfers \
+  -H "Authorization: Bearer <token>"
+
+# Unlock transfers and approvals
+curl -X POST https://api-rho-gold-msx2gnbkee.vercel.app/tokens/0xADDRESS/unlock-transfers \
+  -H "Authorization: Bearer <token>"
+```
+
+**Success response:** `{"success": true}`
 
 ## Account controls
 

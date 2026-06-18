@@ -18,7 +18,7 @@ features:
     - title: Deploy tokens
       details: Create ERC-20 or ERC-721 contracts with a single authenticated POST request.
     - title: Manage onchain
-      details: Mint, pause, freeze accounts, and set ERC-8048 metadata with structured JSON.
+      details: Mint, pause, transfer lock, freeze accounts, and set ERC-8048 metadata with structured JSON.
     - title: Metadata & token URI
       details: Host images externally, set metadata via the API, and serve public tokenURI JSON for wallets.
 ---

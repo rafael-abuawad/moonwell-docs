@@ -90,6 +90,7 @@ Get onchain details for an owned token.
   "name": "Moon Drop",
   "symbol": "MD",
   "paused": false,
+  "transferLocked": false,
   "permissionless": false,
   "owner": "0x...",
   "creator": "you@example.com"
@@ -133,13 +134,25 @@ Mint tokens. Consumes one mint quota.
 
 ## POST /tokens/:address/pause
 
-Pause all transfers. **Body:** none.
+Pause all token operations (mint, burn, metadata, transfers). **Body:** none.
 
 **Response 200:** `{"success": true}`
 
 ## POST /tokens/:address/unpause
 
-Resume transfers. **Body:** none.
+Resume all operations. **Body:** none.
+
+**Response 200:** `{"success": true}`
+
+## POST /tokens/:address/lock-transfers
+
+Block transfers and approvals. **Body:** none.
+
+**Response 200:** `{"success": true}`
+
+## POST /tokens/:address/unlock-transfers
+
+Restore transfers and approvals. **Body:** none.
 
 **Response 200:** `{"success": true}`
 
